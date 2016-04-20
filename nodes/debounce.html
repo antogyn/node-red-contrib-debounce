@@ -1,0 +1,31 @@
+<script type="text/x-red" data-template-name="debounce">
+  <div class="form-row">
+    <label for="node-input-time"><i class="fa fa-wrench"></i> Time (ms)</label>
+    <input type="text" id="node-input-time" placeholder="Time">
+  </div>
+  <div class="form-row">
+    <label for="node-input-name"><i class="fa fa-tag"></i> <span data-i18n="node-red:common.label.name"></span></label>
+     <input type="text" id="node-input-name" data-i18n="[placeholder]node-red:common.label.name">
+  </div>
+</script>
+
+<script type="text/x-red" data-help-name="debounce">
+  <p>Debounce</p>
+</script>
+
+<script type="text/javascript">
+  RED.nodes.registerType('debounce', {
+    category: 'function',
+    color: "#E6E0F8",
+    defaults: {
+      time: { value: 1000, required: true, validate: RED.validators.number() },
+      name: { value: "" }
+    },
+    inputs: 1,
+    outputs: 1,
+    icon: "timer.png",
+    label: function() {
+      return this.name || "debounce";
+    }
+  });
+</script>
